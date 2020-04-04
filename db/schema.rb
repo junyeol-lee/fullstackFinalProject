@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_184147) do
+ActiveRecord::Schema.define(version: 2020_04_04_200327) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -72,6 +72,13 @@ ActiveRecord::Schema.define(version: 2020_04_02_184147) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "hsts", force: :cascade do |t|
+    t.string "province"
+    t.decimal "rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "order_products", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "product_id", null: false
@@ -108,6 +115,8 @@ ActiveRecord::Schema.define(version: 2020_04_02_184147) do
     t.string "province"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_provinces_on_user_id"
   end
 
   create_table "psts", force: :cascade do |t|
@@ -125,12 +134,12 @@ ActiveRecord::Schema.define(version: 2020_04_02_184147) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "provinces_id"
     t.string "name"
     t.string "address"
     t.string "phone_number"
+    t.integer "province_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["provinces_id"], name: "index_users_on_provinces_id"
+    t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -139,5 +148,5 @@ ActiveRecord::Schema.define(version: 2020_04_02_184147) do
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "users", column: "users_id"
   add_foreign_key "products", "categories"
-  add_foreign_key "users", "provinces", column: "provinces_id"
+  add_foreign_key "provinces", "users"
 end
