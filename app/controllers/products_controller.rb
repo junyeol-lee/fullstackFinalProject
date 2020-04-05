@@ -38,3 +38,9 @@ end
 def load_cart
   @cart = Product.find(session[:cart])
 end
+
+# Get /search/?search_term=user+search+terms
+def search
+  # DANGER DANGER
+  @products = Product.where('name LIKE ?', "%#{params[:search_term]}%")
+end

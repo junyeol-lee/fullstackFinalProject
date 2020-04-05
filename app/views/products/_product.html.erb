@@ -13,6 +13,7 @@
             <% end %>
             </div>
             <div class="media-content">
+              <%= button_to 'Buy now'%>
               <p>Price : <%=number_to_currency  product.cost_cents/100.0 %></p>
               <p class="title is-4"><%= link_to product.name, product %></p>
               <p class="title is-4"><%= link_to product.category.name, products_path(category_id: product.category.id) %></p>
