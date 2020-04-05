@@ -21,7 +21,7 @@ User.destroy_all
 
 list_Of_Province = ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia', 'Nunavut', 'Ontario', 'Prince Edward Lsland', 'Quebec', 'Saskatchewan', 'Yukon']
 important_organs = %w[Heart Eyeball Lung]
-less_importan_organs = %w[Liver Pancreas kidney]
+less_importan_organs = %w[Liver Pancreas Kidney]
 categories = %w[important_organs less_importan_organs]
 list_of_status = ['Sale', 'New', 'Sold out', 'Defected', 'Shit']
 
