@@ -6,11 +6,9 @@
         <div class="card-content">
           <div class="media">
             <div class="media-left">
-            <% if product.nil? %>
-              <p>There is no image for this product</p>
-            <% else %>
+            <% if product.image.present? %>
               <figure class="image is-48x48">
-                <img src="/assets/<%= product.name %>" alt="barnney">
+               <%= image_tag product.image %>
               </figure>
             <% end %>
             </div>
