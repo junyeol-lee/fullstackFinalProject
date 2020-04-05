@@ -1,0 +1,10 @@
+<button class="button is-dark" $button-text-color:$white><%= link_to 'Home', root_path%></button>
+<button class="button is-dark"><%= link_to 'Products', products_path%></button>
+<div class="dropdown">
+    <span>Categories</span>
+    <div class="dropdown-content">
+      <% Category.all.each do | category | %>
+        <p><%= link_to category.name, products_url(category_id: category.id) %></p>
+      <% end %>
+    </div>
+  </div>

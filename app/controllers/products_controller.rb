@@ -12,4 +12,10 @@ class ProductsController < ApplicationController
   def show
     @product = Product.includes(:category).find(params['id'])
   end
+
+  # Get /search/?search_term=user+search+terms
+  def search
+    # DANGER DANGER
+    @products = Product.where("name LIKE '%#{params[:search_term]}%'")
+  end
 end
