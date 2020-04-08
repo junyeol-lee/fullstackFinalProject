@@ -1,6 +1,9 @@
 {
   "name": "fullstackFinalProject",
   "private": true,
+  "scripts": {
+    "start": "PUBLISHABLE_KEY=pk_test_Vj8cQzkVt6fpdPR2Pj87BAfn00hJlSPzn5 SECRET_KEY=sk_test_t0sWJP7DZps4G88qXr5zsaOk00y1WFlVqJ rails s"
+  },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",

@@ -3,6 +3,8 @@
   <ul>
     <% @cart.each do |product| %>
       <li><%= product.name %> - <%= link_to 'Remove', remove_from_cart_path(product), method: :delete %></li>
+      <%= number_field(:product, :quantity, in: 1..10, step: 1) %>
     <% end %>
   </ul>
 </details>
+<%= button_to 'Buy all', checkout_create_path, params:{cart: @cart}, remote: true %>

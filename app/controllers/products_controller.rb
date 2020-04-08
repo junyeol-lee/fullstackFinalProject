@@ -27,6 +27,11 @@ class ProductsController < ApplicationController
     session[:cart].delete(id)
     redirect_to products_url
   end
+
+  def search
+    # DANGER DANGER
+    @products = Product.where('name LIKE ?', "%#{params[:search_term]}%")
+  end
 end
 
 private
@@ -40,7 +45,3 @@ def load_cart
 end
 
 # Get /search/?search_term=user+search+terms
-def search
-  # DANGER DANGER
-  @products = Product.where('name LIKE ?', "%#{params[:search_term]}%")
-end

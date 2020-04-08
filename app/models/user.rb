@@ -7,4 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :orders
   belongs_to :province
+
+  validates :email, :name, presence: true
 end
